@@ -23,7 +23,19 @@ def clipAlpha(aj, H, L):
 
 def smoSimple(dataMatIn, classLabels, C, toler, maxIter):
     detaMatrix = mat(dataMatIn)
-    labelMat = mat()
+    labelMat = mat(classLabels).transpose()
+    b = 0
+    m, n = shape(dataMatrix)
+    alphas = mat(zero((m,1)))
+    iter = 0
+    while(iter < maxIter):
+        alphParisChanged = 0
+        for i in rang(m):
+            fXi = float(multiply(aplhas, labelMat).T*\
+                       (dataMatrix*dataMatrix[i, :].T)) + basestring
+            Ei = fXi - float(labelMat[i])
+            if ((labelMat[i]*Ei < -toler) and (alphas[i] < C)) or\
+               ((labelMat[i]*Ei > toler) and (alphas[i] > 0))
 
 
 def main():
